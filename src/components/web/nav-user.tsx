@@ -19,10 +19,12 @@ import {
 } from '@/components/ui/sidebar'
 
 import { NavUserProps } from '@/lib/types'
-import { handleSignOut } from '../../lib/handle-sign-out'
+import { useSignOut } from '../../hooks/use-sign-out'
 
 export function NavUser({ user }: NavUserProps) {
   const { isMobile } = useSidebar()
+
+  const signOut = useSignOut()
 
   return (
     <SidebarMenu>
@@ -76,7 +78,7 @@ export function NavUser({ user }: NavUserProps) {
             </DropdownMenuLabel>
 
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleSignOut}>
+            <DropdownMenuItem onClick={signOut}>
               <LogOut />
               Log out
             </DropdownMenuItem>

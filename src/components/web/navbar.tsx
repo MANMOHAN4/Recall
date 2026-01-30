@@ -2,10 +2,12 @@ import { Link } from '@tanstack/react-router'
 import { Button, buttonVariants } from '../ui/button'
 import { ThemeToggle } from './theme-toggle'
 import { authClient } from '@/lib/auth-client'
-import { handleSignOut } from '../../lib/handle-sign-out'
+import { useSignOut } from '../../hooks/use-sign-out'
 
 export function Navbar() {
   const { data: session, isPending } = authClient.useSession()
+
+  const signOut = useSignOut()
 
   return (
     <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 ">
@@ -23,7 +25,7 @@ export function Navbar() {
           <ThemeToggle />
           {isPending ? null : session ? (
             <>
-              <Button onClick={handleSignOut} variant="secondary">
+              <Button onClick={signOut} variant="secondary">
                 Logout
               </Button>
               <Link to="/dashboard" className={buttonVariants()}>
