@@ -20,11 +20,9 @@ import {
 
 import { NavUserProps } from '@/lib/types'
 import { handleSignOut } from '../../lib/handle-sign-out'
-import { authClient } from '../../lib/auth-client'
 
 export function NavUser({ user }: NavUserProps) {
   const { isMobile } = useSidebar()
-  const { data: session, isPending } = authClient.useSession()
 
   return (
     <SidebarMenu>
@@ -39,17 +37,15 @@ export function NavUser({ user }: NavUserProps) {
                 <AvatarImage
                   src={
                     user.image ??
-                    `https://api.dicebear.com/9.x/glass/svg?seed=${session?.user.name}`
+                    `https://api.dicebear.com/9.x/glass/svg?seed=${user.name}`
                   }
-                  alt={session?.user.name}
+                  alt={user.name}
                 />
                 <AvatarFallback className="rounded-lg">CN</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">
-                  {session?.user.name}
-                </span>
-                <span className="truncate text-xs">{session?.user.email}</span>
+                <span className="truncate font-medium">{user.name}</span>
+                <span className="truncate text-xs">{user.email}</span>
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
@@ -66,19 +62,15 @@ export function NavUser({ user }: NavUserProps) {
                   <AvatarImage
                     src={
                       user.image ??
-                      `https://api.dicebear.com/9.x/glass/svg?seed=${session?.user.name}`
+                      `https://api.dicebear.com/9.x/glass/svg?seed=${user.name}`
                     }
-                    alt={session?.user.name}
+                    alt={user.name}
                   />
                   <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">
-                    {session?.user.name}
-                  </span>
-                  <span className="truncate text-xs">
-                    {session?.user.email}
-                  </span>
+                  <span className="truncate font-medium">{user.name}</span>
+                  <span className="truncate text-xs">{user.email}</span>
                 </div>
               </div>
             </DropdownMenuLabel>
