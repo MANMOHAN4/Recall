@@ -8,3 +8,8 @@ export const bulkImportSchema = z.object({
   url: z.url(),
   search: z.string(),
 })
+
+export const extractSchema = z.object({
+  author: z.string().nullable(),
+  publishedAt: z.string().nullable(),
+})
