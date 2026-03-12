@@ -282,7 +282,7 @@ export const searchWebFn = createServerFn({ method: 'POST' })
   .handler(async ({ data }) => {
     const result = await firecrawl.search(data.query, {
       limit: 15,
-      location: 'Germany',
+      location: 'India',
       tbs: 'qdr:y',
     })
 
