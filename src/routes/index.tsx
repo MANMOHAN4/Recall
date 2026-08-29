@@ -161,14 +161,6 @@ function Index() {
                 <span className="relative">Start Building Your Library</span>
                 <ArrowRight className="h-5 w-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
               </Link>
-
-              <Link
-                to="/dashboard"
-                className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-base border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all duration-300"
-              >
-                <span>View Demo</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
             </div>
 
             {/* Social Proof */}
